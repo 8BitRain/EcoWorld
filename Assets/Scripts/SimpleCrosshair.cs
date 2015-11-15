@@ -1,18 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class SimpleCrosshair : MonoBehaviour {
 
-	public Camera cameraFacing;
+	public Camera CameraFacing;
+	public float[] values;
+	private Vector3 originalScale;
+	private InteractiveObj interactiveObj;
+	
 	// Use this for initialization
 	void Start () {
-	
+		originalScale = transform.localScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.LookAt (cameraFacing.transform.position);
+		RaycastHit hit;
+		float distance;
+		if (Physics.Raycast (new Ray (CameraFacing.transform.position,
+		                              CameraFacing.transform.rotation * Vector3.forward),
+		                     out hit)) {
+			distance = hit.distance;
+			if (hit.transform.GetComponent<InteractiveObj> () != null && hit.transform.tag != "Background") {
+				interactiveObj = hit.transform.GetComponent<InteractiveObj> ();
+				interactiveObj.objectHit = true;
+				//print ("Hitting Something");
+			} else{
+				if(interactiveObj != null){
+					//print ("Hitting Nothing");
+					interactiveObj.objectHit = false;
+				}
+
+			}
+		} else {
+			distance = CameraFacing.farClipPlane * 0.95f;
+		}
+		transform.position = CameraFacing.transform.position +
+			CameraFacing.transform.rotation * Vector3.forward * distance;
+		transform.LookAt (CameraFacing.transform.position);
 		transform.Rotate (0.0f, 180.0f, 0.0f);
-		transform.position = cameraFacing.transform.position + cameraFacing.transform.rotation * Vector3.forward;
+		if (distance < 10.0f) {
+			distance *= 1 + 5*Mathf.Exp (-distance);
+		}
+		transform.localScale = originalScale * distance;
 	}
 }
+
+
