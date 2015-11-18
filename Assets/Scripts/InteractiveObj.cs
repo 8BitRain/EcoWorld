@@ -40,7 +40,7 @@ public class InteractiveObj : MonoBehaviour {
 	void Update () {
 		//Check Distance of Player
 		float distance = Vector3.Distance (this.transform.position, player.transform.position);
-		print (distance);
+		//print (distance);
 		//Is the Player within a distance where she can interact with the object?
 		if (objectHit && playerController.playerState == PlayerController.PlayerState.NEUTRAL) {
 			if (distance <= 3) {
@@ -57,19 +57,20 @@ public class InteractiveObj : MonoBehaviour {
 		//each individual object
 		if (playerCanInteract) {
 			if(objType == InteractiveObjType.EQUIPPABLE){
-				if(Input.GetKey(KeyCode.Space)){
-					this.transform.parent = GameObject.Find("Player").transform;
-					print ("This occured");
+				if(Input.GetKeyDown(KeyCode.Space)){
+					this.transform.parent = GameObject.Find("FrontVision").transform;
+					this.transform.localScale += new Vector3(-0.5F, -0.5F, -0.5F);
+					print ("Script is running");
 					this.playerCanInteract =false;
 					//playerController.
 					playerController.playerState = PlayerController.PlayerState.HOLDING;
-					//playerIsHolding = true;
+					playerIsHolding = true;
 				}
 			}
 		}
 		//Highlight Object being viewed by reticle 
 		//Based on if the playerIsHolding something. If she is change this value
-		if (!playerIsHolding) {
+
 			if (objectHit && !playerIsHolding) {
 				rend.sharedMaterial.color = Color.yellow;
 			}
@@ -79,9 +80,21 @@ public class InteractiveObj : MonoBehaviour {
 			if (playerIsHolding) {
 				rend.sharedMaterial.color = initRendColor;
 			}
+		//How should this object act if the player is carrying it?
+		if (playerController.playerState == PlayerController.PlayerState.HOLDING && playerIsHolding == true) {
+			if(Input.GetKeyDown(KeyCode.F)){
+				print (this.transform.parent.name);
+				this.transform.parent = null;
+				print ("Player droped item");
+				//this.playerCanInteract = true;
+				//playerController.
+				playerController.playerState = PlayerController.PlayerState.NEUTRAL;
+				this.transform.localScale += new Vector3(0.5F, 0.5F, 0.5F);
+				playerIsHolding = false;
+			}
 		}
-	
-
+		
+		
 	}
 
 	void OnDrawGizmosSelected() {
