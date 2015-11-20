@@ -1,4 +1,4 @@
-SteamVR plugin for Unity - v1.0.5
+SteamVR plugin for Unity - v1.0.6
 Copyright 2014-2015, Valve Corporation, All rights reserved.
 
 
@@ -13,6 +13,21 @@ Requirements:
 The SteamVR runtime must be installed.  This can be found in Steam under Tools.
 
 The plugin currently only supports Windows / DX11.
+
+
+Changes for v1.0.6:
+
+* Updated to SteamVR runtime v1446847085.
+
+* Added SteamVR_LevelLoad script to help smooth level transitions.
+
+* Added 'Take Snapshot' button to SteamVR_Skybox to automate creation of cubemap assets.
+
+* SteamVR_RenderModel now optionally creates subcomponents for buttons, etc. and optionally updates them dynamically to reflect pulling trigger, etc.
+
+* Added SteamVR_TestIK scene to Extras.
+
+* Added SteamVR.enabled which can be set to false to keep SteamVR.instance from initializing SteamVR.
 
 
 Changes for v1.0.5:

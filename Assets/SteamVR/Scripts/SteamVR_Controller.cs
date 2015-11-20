@@ -46,6 +46,10 @@ public class SteamVR_Controller
 		public Vector3 velocity { get { Update(); return new Vector3(pose.vVelocity.v[0], pose.vVelocity.v[1], -pose.vVelocity.v[2]); } }
 		public Vector3 angularVelocity { get { Update(); return new Vector3(-pose.vAngularVelocity.v[0], -pose.vAngularVelocity.v[1], pose.vAngularVelocity.v[2]); } }
 
+		public VRControllerState_t GetState() { Update(); return state; }
+		public VRControllerState_t GetPrevState() { Update(); return prevState; }
+		public TrackedDevicePose_t GetPose() { Update(); return pose; }
+
 		VRControllerState_t state, prevState;
 		TrackedDevicePose_t pose;
 		int prevFrameCount = -1;
