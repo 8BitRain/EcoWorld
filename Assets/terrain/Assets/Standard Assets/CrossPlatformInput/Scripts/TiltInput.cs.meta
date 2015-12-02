@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5c2d84226fbbaf94e9c1451f1c39b06a
+guid: 1c49b10400fd14d319e43d85b3a3f7db
 labels:
 - Not
 - Fully
@@ -11,3 +11,4 @@ MonoImporter:
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
+  assetBundleVariant: 
