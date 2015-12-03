@@ -1477,7 +1477,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.62000012, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1566234714}
+  - {fileID: 1640413642}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!114 &1451012522
@@ -1492,8 +1494,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enviroHazardMeter: {fileID: 687421828}
-  numObjsInWater: 0
-  prevNumObjsInWater: 0
+  magmaRain: {fileID: 100008, guid: 53c3e6f4bde54423ebe2438a84302160, type: 2}
+  magmaRainSpawn: {fileID: 1566234714}
+  fireMist: {fileID: 100000, guid: 27d8c546173834381a3b4c0adfd1882f, type: 2}
+  fireMistSpawn: {fileID: 1640413642}
 --- !u!1001 &1455206254
 Prefab:
   m_ObjectHideFlags: 0
@@ -1770,6 +1774,33 @@ MonoBehaviour:
   waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
+--- !u!1 &1566234713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1566234714}
+  m_Layer: 0
+  m_Name: MagmaRainPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566234714
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566234713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.25, y: 2.66000009, z: 2.68000007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1451012521}
+  m_RootOrder: 0
 --- !u!20 &1580471813 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2040602, guid: 54874c43603634843ad06b923285f119,
@@ -1939,6 +1970,33 @@ Transform:
   - {fileID: 1565860927}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1 &1640413641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1640413642}
+  m_Layer: 0
+  m_Name: FIreMistSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1640413642
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1640413641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.55999994, y: -.930637717, z: 6.86000013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1451012521}
+  m_RootOrder: 1
 --- !u!1001 &1696897805
 Prefab:
   m_ObjectHideFlags: 0
