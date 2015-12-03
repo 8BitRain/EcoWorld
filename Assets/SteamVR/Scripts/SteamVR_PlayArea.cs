@@ -37,7 +37,7 @@ public class SteamVR_PlayArea : MonoBehaviour
 			var error = HmdError.None;
 			if (!SteamVR.active)
 			{
-				OpenVR.Init(ref error);
+				OpenVR.Init(ref error, EVRApplicationType.VRApplication_Other);
 				if (error != HmdError.None)
 					return false;
 			}
@@ -188,7 +188,7 @@ public class SteamVR_PlayArea : MonoBehaviour
 			{
 				foreach (var f in fields)
 				{
-					if (!f.GetValue(this).Equals(values[f]))
+					if (!values.Contains(f) || !f.GetValue(this).Equals(values[f]))
 					{
 						rebuild = true;
 						break;

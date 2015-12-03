@@ -27,7 +27,8 @@ public class SteamVR_Overlay : MonoBehaviour
 
 	static public SteamVR_Overlay instance { get; private set; }
 
-	private string key { get { return "unity:" + Application.companyName + "." + Application.productName; } }
+	static public string key { get { return "unity:" + Application.companyName + "." + Application.productName; } }
+
 	private ulong handle = OpenVR.k_ulOverlayHandleInvalid;
 
 	void OnEnable()

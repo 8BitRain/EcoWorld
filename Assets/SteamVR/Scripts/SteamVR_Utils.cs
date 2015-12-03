@@ -475,7 +475,7 @@ public static class SteamVR_Utils
 		else
 		{
 			var error = HmdError.None;
-			var pSystem = OpenVR.Init(ref error);
+			var pSystem = OpenVR.Init(ref error, EVRApplicationType.VRApplication_Other);
 			if (pSystem != System.IntPtr.Zero && error == HmdError.None)
 			{
 				// Make sure we're using the proper version

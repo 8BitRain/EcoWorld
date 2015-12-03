@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4f1fee3de32377429fd1348fae62b10
+guid: ea891dbeb9b6043b4845f600c31fb9fb
 TextureImporter:
   fileIDToRecycleName:
     21300000: JumpButton
@@ -36,6 +36,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
@@ -51,3 +52,4 @@ TextureImporter:
   spritePackingTag: 
   userData: 
   assetBundleName: 
+  assetBundleVariant: 

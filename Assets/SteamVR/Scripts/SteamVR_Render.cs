@@ -131,11 +131,16 @@ public class SteamVR_Render : MonoBehaviour
 	private TrackedDevicePose_t[] poses = new TrackedDevicePose_t[OpenVR.k_unMaxTrackedDeviceCount];
 	private TrackedDevicePose_t[] gamePoses = new TrackedDevicePose_t[0];
 
+    public bool pauseRendering = false;
+
 	private IEnumerator RenderLoop()
 	{
 		while (true)
 		{
 			yield return new WaitForEndOfFrame();
+
+            if (pauseRendering)
+                continue;
 
 			var vr = SteamVR.instance;
 

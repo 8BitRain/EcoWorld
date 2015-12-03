@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 826a9284e3bce4848a0548126ffa8739
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: back
+    100002: Back_left
+    100004: Back_left.001
+    100006: Back_left.002
+    100008: Back_left.003
+    100010: Back_left.004
+    100012: Back_left.005
+    100014: Back_left.006
+    100016: Back_left.007
+    100018: Cube
+    100020: Front
+    100022: Front.001
+    100024: Front.002
+    100026: Front.003
+    100028: Front.004
+    100030: front_left
+    100032: front_left.001
+    100034: front_left.002
+    100036: front_left.003
+    100038: front_left.004
+    100040: front_left.005
+    100042: Null
+    100044: Rig
+    100046: //RootNode
+    400000: back
+    400002: Back_left
+    400004: Back_left.001
+    400006: Back_left.002
+    400008: Back_left.003
+    400010: Back_left.004
+    400012: Back_left.005
+    400014: Back_left.006
+    400016: Back_left.007
+    400018: Cube
+    400020: Front
+    400022: Front.001
+    400024: Front.002
+    400026: Front.003
+    400028: Front.004
+    400030: front_left
+    400032: front_left.001
+    400034: front_left.002
+    400036: front_left.003
+    400038: front_left.004
+    400040: front_left.005
+    400042: Null
+    400044: Rig
+    400046: //RootNode
+    4300000: Cube
+    7400000: Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube/Null
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: Rig/back
+        weight: 1
+      - path: Rig/back/Back_left
+        weight: 1
+      - path: Rig/back/Back_left/Back_left.001
+        weight: 1
+      - path: Rig/back/Back_left/Back_left.001/Back_left.002
+        weight: 1
+      - path: Rig/back/Back_left/Back_left.001/Back_left.002/Back_left.006
+        weight: 1
+      - path: Rig/back/Back_left.003
+        weight: 1
+      - path: Rig/back/Back_left.003/Back_left.004
+        weight: 1
+      - path: Rig/back/Back_left.003/Back_left.004/Back_left.005
+        weight: 1
+      - path: Rig/back/Back_left.003/Back_left.004/Back_left.005/Back_left.007
+        weight: 1
+      - path: Rig/Front
+        weight: 1
+      - path: Rig/Front/Front.001
+        weight: 1
+      - path: Rig/Front/Front.001/Front.002
+        weight: 1
+      - path: Rig/Front/Front.001/Front.002/Front.003
+        weight: 1
+      - path: Rig/Front/Front.001/Front.002/Front.003/Front.004
+        weight: 1
+      - path: Rig/Front/front_left
+        weight: 1
+      - path: Rig/Front/front_left/front_left.001
+        weight: 1
+      - path: Rig/Front/front_left/front_left.001/front_left.004
+        weight: 1
+      - path: Rig/Front/front_left.002
+        weight: 1
+      - path: Rig/Front/front_left.002/front_left.003
+        weight: 1
+      - path: Rig/Front/front_left.002/front_left.003/front_left.005
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

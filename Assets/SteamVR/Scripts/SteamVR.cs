@@ -15,11 +15,26 @@ public class SteamVR : System.IDisposable
 	// to activate it in the process.
 	public static bool active { get { return _instance != null; } }
 
+	// Set this to false to keep from auto-initializing when calling SteamVR.instance.
+	private static bool _enabled = true;
+	public static bool enabled
+	{
+		get { return _enabled; }
+		set
+		{
+			_enabled = value;
+			if (!_enabled)
+				SafeDispose();
+		}
+	}
+
 	private static SteamVR _instance;
 	public static SteamVR instance
 	{
 		get
 		{
+			if (!enabled)
+				return null;
 			if (_instance == null)
 				_instance = CreateInstance();
 			return _instance;
