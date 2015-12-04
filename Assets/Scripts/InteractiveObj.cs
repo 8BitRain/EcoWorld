@@ -2,38 +2,48 @@
 using System.Collections;
 
 public class InteractiveObj : MonoBehaviour {
-	public bool isSwitch;
 	public bool switchOn;
-
-	public bool canHoldObjs;
-	public bool isHoldingObj;
-
+	
 	public bool playerCanHold;
 	public bool playerIsHolding;
 
 	public InteractiveObjType objType;
-
 	public enum InteractiveObjType{SWITCH, CONTAINER, EQUIPPABLE};
 
 	public GameObject player;
 	public bool playerCanInteract;
 	public PlayerController playerController;
-	
+	public BouyantWater waterScript;
+
+
 	public bool objectHit;
+	public int numObjs;
+	private bool itemInContainer;
+
 	Renderer rend;
+	private Rigidbody rigbody;
 	Color initRendColor;
+	
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player");
+		player = GameObject.FindGameObjectWithTag("Player");
+
 		playerController = player.GetComponent<PlayerController> ();
+		waterScript = GetComponent<BouyantWater> ();
 		objectHit = false;
-		rend = this.GetComponent<Renderer>();
-		initRendColor = rend.sharedMaterial.color;
+
+		if (this.GetComponent<Renderer> () != null) {
+			rend = this.GetComponent<Renderer>();
+			initRendColor = rend.material.color;
+		}
+		rigbody = this.GetComponent<Rigidbody> ();
 
 		if (objType == InteractiveObjType.EQUIPPABLE) {
 			this.playerCanHold = true;
+			itemInContainer = false;
 		}
+		numObjs = 0;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +52,7 @@ public class InteractiveObj : MonoBehaviour {
 		float distance = Vector3.Distance (this.transform.position, player.transform.position);
 		//print (distance);
 		//Is the Player within a distance where she can interact with the object?
+		//if()
 		if (objectHit && playerController.playerState == PlayerController.PlayerState.NEUTRAL) {
 			if (distance <= 3) {
 				playerCanInteract = true;
@@ -57,48 +68,93 @@ public class InteractiveObj : MonoBehaviour {
 		//each individual object
 		if (playerCanInteract) {
 			if(objType == InteractiveObjType.EQUIPPABLE){
-				if(Input.GetKeyDown(KeyCode.Space)){
-					this.transform.parent = GameObject.Find("FrontVision").transform;
-					this.transform.localScale += new Vector3(-0.5F, -0.5F, -0.5F);
-					print ("Script is running");
+				if(Input.GetKeyDown(KeyCode.G)){
+					transform.localRotation = Quaternion.identity;
+					//rigbody.rotation = Quaternion.identity;
+					rigbody.detectCollisions = false;
+					rigbody.isKinematic = true;
+
+					//TODO uncomment this code if instantiating object doesn't reset it
+					this.transform.parent = GameObject.FindGameObjectWithTag("ItemHolder").transform;
+
+					//this.transform.localPosition = GameObject.FindGameObjectWithTag("ItemHolder").transform.position;
+					//this.transform.localScale = new Vector3(transform.localScale.x/2, transform.localScale.y/2, transform.localScale.z/2);
+					//this.transform.eulerAngles = new Vector3(0,0,0);
+
+					transform.localRotation = Quaternion.identity;
+
+					//print ("Script is running");
 					this.playerCanInteract =false;
 					//playerController.
 					playerController.playerState = PlayerController.PlayerState.HOLDING;
 					playerIsHolding = true;
+				
 				}
 			}
 		}
 		//Highlight Object being viewed by reticle 
 		//Based on if the playerIsHolding something. If she is change this value
-
-			if (objectHit && !playerIsHolding) {
+		if (objType == InteractiveObjType.EQUIPPABLE || objType == InteractiveObjType.SWITCH) {
+			if (objectHit && !playerIsHolding && playerController.playerState == PlayerController.PlayerState.NEUTRAL) {
 				rend.sharedMaterial.color = Color.yellow;
+			} else {
+				rend.material.color = initRendColor;
 			}
-			if(!objectHit && !playerIsHolding){
-				rend.sharedMaterial.color = initRendColor;
+			if (!objectHit && !playerIsHolding) {
+				rend.material.color = initRendColor;
 			}
 			if (playerIsHolding) {
-				rend.sharedMaterial.color = initRendColor;
+				rend.material.color = initRendColor;
 			}
+		}
 		//How should this object act if the player is carrying it?
 		if (playerController.playerState == PlayerController.PlayerState.HOLDING && playerIsHolding == true) {
 			if(Input.GetKeyDown(KeyCode.F)){
-				print (this.transform.parent.name);
+				//print (this.transform.parent.name);
+				//TODO Update this code
 				this.transform.parent = null;
-				print ("Player droped item");
+				//print ("Player droped item");
+
 				//this.playerCanInteract = true;
 				//playerController.
 				playerController.playerState = PlayerController.PlayerState.NEUTRAL;
-				this.transform.localScale += new Vector3(0.5F, 0.5F, 0.5F);
+				//this.transform.localScale = new Vector3(transform.localScale.x*2, transform.localScale.y*2, transform.localScale.z*2);
+				//Rigidbody gameObjectsRigidBody = this.gameObject.AddComponent<Rigidbody>(); // Add the rigidbody.
+				rigbody.detectCollisions = true;
+				rigbody.isKinematic = false;
+
+				//rigbody.AddForce(Vector3.forward*1000);
+				rigbody.AddRelativeForce(new Vector3(0,0,1000));
 				playerIsHolding = false;
+
 			}
 		}
 		
-		
+		objectHit = false;
 	}
 
 	void OnDrawGizmosSelected() {
 		//Gizmos.color = Color.blue;
 		//Gizmos.DrawWireCube(transform.position, new Vector3(1.5f, 1.5f, 1.5f));
+	}
+
+	void OnTriggerEnter(Collider other){
+		//Only do this logic if this object is Equippable
+		if(objType == InteractiveObjType.EQUIPPABLE){
+			if(itemInContainer == false){
+				if (other.gameObject.layer == LayerMask.NameToLayer("Water")) {
+					waterScript.isActive = true;
+					//print ("Object Collided With Water");
+					itemInContainer = true;
+					other.GetComponent<InteractiveObj>().numObjs += 1;
+				}
+			}
+
+		}
+
+	}
+
+	int countObjs(){
+		return numObjs;
 	}
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: dad75e6ece4fe4308acc27eb027e3f2f
+=======
+guid: 1c49b10400fd14d319e43d85b3a3f7db
+>>>>>>> origin/master
 labels:
 - Not
 - Fully

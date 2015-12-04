@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: db7c776feb9074460b2ea6db64dc49af
+=======
+guid: e99ea87ea54524e8d92887403cf78348
+>>>>>>> origin/master
 TextScriptImporter:
   userData: 
   assetBundleName: 

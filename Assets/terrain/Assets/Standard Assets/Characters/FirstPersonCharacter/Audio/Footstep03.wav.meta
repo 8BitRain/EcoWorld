@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 11e57269f1b4a45dcb3b4e8c8bef5573
+=======
+guid: 29033d3d54a5747aaaa47f87f7e4808f
+>>>>>>> origin/master
 AudioImporter:
   serializedVersion: 6
   defaultSettings:

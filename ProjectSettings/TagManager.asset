@@ -8,6 +8,12 @@ TagManager:
   - Cube
   - Cylinder
   - Background
+  - FirstPersonCamera
+  - ItemHolder
+  - WATER
+  - CONTAINER
+  - ENVIROMETER
+  - SWITCH
   layers:
   - Default
   - TransparentFX
