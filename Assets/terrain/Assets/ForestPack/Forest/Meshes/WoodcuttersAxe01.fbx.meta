@@ -1,31 +1,16 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 2aa1dbb513cd945b19911ffb44275397
-=======
-guid: 6e92d0309314a417eb8933095c3adcc8
->>>>>>> origin/master
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: polySurface1
-    100002: polySurface2
-    100004: transform1
-    100006: transform2
-    100008: //RootNode
-    100010: WoodcuttersAxe01
-    400000: polySurface1
-    400002: polySurface2
-    400004: transform1
-    400006: transform2
-    400008: //RootNode
-    400010: WoodcuttersAxe01
-    2300000: WoodcuttersAxe01
-    2300002: //RootNode
-    3300000: WoodcuttersAxe01
-    3300002: //RootNode
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: WoodcuttersAxe01
+    9500000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -47,7 +32,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -61,7 +46,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -82,7 +67,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
