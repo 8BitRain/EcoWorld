@@ -137,7 +137,7 @@ public class EnviroManager : MonoBehaviour {
 		//TODO Do a switch case here on the type of enviroment
 		switch (mission) {
 		case Mission.MISSION_LAKEPOLLUTION:
-			print ("Lake Pollution");
+			//print ("Lake Pollution");
 			if (waterHealthSlider.value > 50 && !magmaRainSpawned) {
 				Instantiate(magmaRain, magmaRainSpawn.position, magmaRainSpawn.rotation);
 				magmaRainSpawned = true;
