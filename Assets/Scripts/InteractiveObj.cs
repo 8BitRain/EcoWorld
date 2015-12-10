@@ -4,16 +4,16 @@ using System.Collections;
 public class InteractiveObj : MonoBehaviour {
 	public bool switchOn;
 	
-	public bool playerCanHold;
-	public bool playerIsHolding;
+	private bool playerCanHold;
+	private bool playerIsHolding;
 
 	public InteractiveObjType objType;
 	public enum InteractiveObjType{SWITCH, CONTAINER, EQUIPPABLE};
 
-	public GameObject player;
-	public bool playerCanInteract;
-	public PlayerController playerController;
-	public BouyantWater waterScript;
+	private GameObject player;
+	private bool playerCanInteract;
+	private PlayerController playerController;
+	private BouyantWater waterScript;
 
 
 	public bool objectHit;
