@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Eye
-  m_Shader: {fileID: 4800000, guid: c2a8d8322135b2c43a06d85fa4dfa458, type: 3}
+  m_Name: Flame Particle Texture
+  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -19,21 +19,10 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: dc545ac7e50ffbe47ac5e92d3ffcb674, type: 3}
+          m_Texture: {fileID: 2800000, guid: 9f5d05ebde35aab46b9b2a91881abf7a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Blink
-        second:
-          m_Texture: {fileID: 2800000, guid: 1dfb61a53086f1f43b6d1c16b19e9f57, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _Clip
-        second: 1
+    m_Floats: {}
     m_Colors:
       data:
         first:
