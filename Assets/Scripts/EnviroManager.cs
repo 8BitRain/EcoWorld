@@ -41,9 +41,15 @@ public class EnviroManager : MonoBehaviour {
 
 	//HealthBarText
 
+	[Header("Total # of Special Objects")]
+	private int numEquippableObjs;
+	private int numSwitches;
 
 	private int numObjsInWater;
 	private int prevNumObjsInWater;
+
+	public int numSwitchesOn;
+	private int prevNumSwitchesOn;
 	//Missions
 	[Header("Current Mission")]
 	public Mission mission;
@@ -54,25 +60,36 @@ public class EnviroManager : MonoBehaviour {
 		enviroHazardSlider = enviroHazardMeter.GetComponent<Slider> ();
 		//enviroHazardMeterTransform.transform.
 		enviroHazardMeterTransform.sizeDelta = new Vector2 (Screen.width, 40);*/
+		numEquippableObjs = GameObject.FindGameObjectsWithTag ("EQUIPPABLE").Length;
+		numSwitches = GameObject.FindGameObjectsWithTag ("SWITCH").Length;
+
 		containerObjs = GameObject.FindGameObjectsWithTag ("CONTAINER"); 
 		switchObjs = GameObject.FindGameObjectsWithTag("SWITCH");
-		mission = Mission.MISSION_LAKEPOLLUTION;
+		//mission = Mission.MISSION_LAKEPOLLUTION;
 		numObjsInWater = 0;
 		prevNumObjsInWater = 0; 
+		numSwitchesOn = 0;
 
 		//Meter Init
 		waterHealthSlider.gameObject.SetActive (false);
 		forestHealthSlider.gameObject.SetActive (false);
 		powerplantHealthMeter.gameObject.SetActive (false);
 
+		//Meter Values Init
+		waterHealthSlider.maxValue = 15 * numEquippableObjs;
+		powerplantHealthMeter.maxValue = 15 * numSwitches;
+
 		//Text Init
 		waterMeterText.gameObject.SetActive (false);
 		forestMeterText.gameObject.SetActive (false);
 		powerplantMeterText.gameObject.SetActive (false);
 
+
 		//Weather Initialization
 		magmaRainSpawned = false;
 		fireMistSpawned = false;
+
+
 	}
 
 	// Update is called once per frame
@@ -87,13 +104,14 @@ public class EnviroManager : MonoBehaviour {
 			countWaterObjs ();
 			if (prevNumObjsInWater < numObjsInWater) {
 				print (prevNumObjsInWater);
-				increaseEnviromentMeter((numObjsInWater - prevNumObjsInWater)*15);
+				increaseWaterMeter((numObjsInWater - prevNumObjsInWater)*15);
 			}
 			break;
 		case Mission.MISSION_POWERPLANT:
-			deactivateMetersAndText();
-			powerplantHealthMeter.gameObject.SetActive(true);
-			powerplantMeterText.gameObject.SetActive(true);
+			deactivateMetersAndText ();
+			powerplantHealthMeter.gameObject.SetActive (true);
+			powerplantMeterText.gameObject.SetActive (true);
+
 			break;
 		case Mission.MISSION_FORESTHARM:
 			deactivateMetersAndText();
@@ -115,10 +133,16 @@ public class EnviroManager : MonoBehaviour {
 		}
 		return numObjsInWater;
 	}
+		
 
-	void increaseEnviromentMeter(int incrementAmnt){
+	void increaseWaterMeter(int incrementAmnt){
 		//Need a value for increment maybe by 5?
 		//enviroHazardSlider.value += incrementAmnt;
+		waterHealthSlider.value += incrementAmnt;
+	}
+
+	void increasePowerMeter(int increaseAmnt){
+		powerplantHealthMeter.value += increaseAmnt;
 	}
 
 	void deactivateMetersAndText(){

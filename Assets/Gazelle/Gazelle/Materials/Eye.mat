@@ -33,7 +33,7 @@ Material:
       data:
         first:
           name: _Clip
-        second: .400000006
+        second: 0.4
     m_Colors:
       data:
         first:

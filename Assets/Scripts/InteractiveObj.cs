@@ -23,6 +23,7 @@ public class InteractiveObj : MonoBehaviour {
 	Renderer rend;
 	private Rigidbody rigbody;
 	Color initRendColor;
+	private EnviroManager enviroManager;
 	
 
 	// Use this for initialization
@@ -43,6 +44,11 @@ public class InteractiveObj : MonoBehaviour {
 			this.playerCanHold = true;
 			itemInContainer = false;
 		}
+		if (objType == InteractiveObjType.SWITCH) {
+			this.playerCanHold = false;
+			itemInContainer = false;
+		}
+		enviroManager = GameObject.FindGameObjectWithTag ("ENVMANAGER").GetComponent<EnviroManager> ();
 		numObjs = 0;
 	}
 	
@@ -92,21 +98,7 @@ public class InteractiveObj : MonoBehaviour {
 				}
 			}
 		}
-		//Highlight Object being viewed by reticle 
-		//Based on if the playerIsHolding something. If she is change this value
-		if (objType == InteractiveObjType.EQUIPPABLE || objType == InteractiveObjType.SWITCH) {
-			if (objectHit && !playerIsHolding && playerController.playerState == PlayerController.PlayerState.NEUTRAL) {
-				rend.sharedMaterial.color = Color.yellow;
-			} else {
-				rend.material.color = initRendColor;
-			}
-			if (!objectHit && !playerIsHolding) {
-				rend.material.color = initRendColor;
-			}
-			if (playerIsHolding) {
-				rend.material.color = initRendColor;
-			}
-		}
+
 		//How should this object act if the player is carrying it?
 		if (playerController.playerState == PlayerController.PlayerState.HOLDING && playerIsHolding == true) {
 			if(Input.GetKeyDown(KeyCode.F)){
@@ -127,6 +119,36 @@ public class InteractiveObj : MonoBehaviour {
 				rigbody.AddRelativeForce(new Vector3(0,0,1000));
 				playerIsHolding = false;
 
+			}
+		}
+
+		//How should this object act if it is a switch?
+		if(playerCanInteract && objType == InteractiveObjType.SWITCH){
+			if (Input.GetKeyDown (KeyCode.G) && !switchOn) {
+				switchOn = true;
+				enviroManager.powerplantHealthMeter.value += 15;
+				print ("UP");
+
+			}
+			else if (Input.GetKeyDown (KeyCode.G) && switchOn) {
+				switchOn = false;
+				enviroManager.powerplantHealthMeter.value -= 15;
+				print("DOWN");
+			}
+		}
+		//Highlight Object being viewed by reticle 
+		//Based on if the playerIsHolding something. If she is change this value
+		if (objType == InteractiveObjType.EQUIPPABLE || objType == InteractiveObjType.SWITCH) {
+			if (objectHit && !playerIsHolding && playerController.playerState == PlayerController.PlayerState.NEUTRAL) {
+				rend.sharedMaterial.color = Color.yellow;
+			} else {
+				rend.material.color = initRendColor;
+			}
+			if (!objectHit && !playerIsHolding) {
+				rend.material.color = initRendColor;
+			}
+			if (playerIsHolding) {
+				rend.material.color = initRendColor;
 			}
 		}
 		

@@ -15,9 +15,12 @@ public class colliderTest : MonoBehaviour {
 	}
 
 	void OnParticleCollision(GameObject other){
-		print (this.name + " was hit");
-		//if (other.name == "MagmaCollision") {
-			Instantiate(fire, this.transform.position, this.transform.rotation);
-		//}
+		if (this.gameObject.tag != "TERRAIN") {
+			print (this.name + " was hit");
+			//if (other.name == "MagmaCollision") {
+			//Instantiate(fire, this.transform.position, this.transform.rotation);
+			//}
+		}
+
 	}
 }
