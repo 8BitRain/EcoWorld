@@ -190,13 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 2
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!54 &34261900
@@ -818,6 +812,7 @@ GameObject:
   - 65: {fileID: 551794273}
   - 23: {fileID: 551794272}
   - 114: {fileID: 551794275}
+  - 195: {fileID: 551794276}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
@@ -892,6 +887,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 0}
+--- !u!195 &551794276
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551794270}
+  m_Enabled: 1
+  m_Radius: .5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: .5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &650140081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,13 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 2
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!54 &679492016
@@ -2599,13 +2608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 1
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!1 &1566234713
@@ -2705,13 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 2
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!23 &1593572099
@@ -2727,7 +2724,7 @@ MeshRenderer:
   - {fileID: 2100000, guid: 64376df966f974af89dd9181fc7a339b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 2
@@ -3083,13 +3080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 2
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!54 &1930224943
@@ -3477,13 +3468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchOn: 0
-  playerCanHold: 0
-  playerIsHolding: 0
   objType: 2
-  player: {fileID: 0}
-  playerCanInteract: 0
-  playerController: {fileID: 0}
-  waterScript: {fileID: 0}
   objectHit: 0
   numObjs: 0
 --- !u!114 &2096577418
